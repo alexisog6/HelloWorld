@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>biz.descom.webapphellojava</groupId>
+  <version>1.0-SNAPSHOT</version>
+  <artifactId>webapphellojava</artifactId>
+  <name>Webapp Hello Java</name>
+  <description>Hello World Java Webapplication - packaged as WAR</description>
+  <packaging>war</packaging>
+  <organization>
+    <name>Descom Consulting Ltd.</name>
+  </organization>
+
+  <properties>
+    <junit.version>4.12</junit.version>
+    <servlet.api.version>3.1.0</servlet.api.version>
+    <war.version>3.0.0</war.version>
+    <addMavenDescriptor>false</addMavenDescriptor>
+    <projectRoot>.</projectRoot>
+  </properties>
+
+  <build>
+    <finalName>demo</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <testSource>1.8</testSource>
+          <testTarget>1.8</testTarget>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <addMavenDescriptor>${addMavenDescriptor}</addMavenDescriptor>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              <addClasspath>false</addClasspath>
+            </manifest>
+            <manifestEntries>
+              <Specification-Title>${project.name}</Specification-Title>
+              <Specification-Version>${project.version}</Specification-Version>
+              <Specification-Vendor>Descom Consulting Ltd.</Specification-Vendor>
+              <Implementation-Title>${project.name}</Implementation-Title>
+              <Implementation-Version>${project.version}</Implementation-Version>
+              <Implementation-Vendor>Descom Consulting Ltd.</Implementation-Vendor>
+              <Build-Date>${maven.build.timestamp}</Build-Date>
+              <Build-Maven>${project.groupId}:${project.artifactId}:${project.version}</Build-Maven>
+              <Deployment-Target>Unknown</Deployment-Target>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${servlet.api.version}</version>
+    </dependency>
+  </dependencies>
+</project>

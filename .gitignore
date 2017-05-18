@@ -1,0 +1,8 @@
+
+attic/
+target/
+work/
+
+workspace.xml
+Thumbs.db
+local.properties

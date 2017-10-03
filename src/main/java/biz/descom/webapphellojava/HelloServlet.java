@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Properties;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,10 +33,11 @@ public class HelloServlet extends HttpServlet {
     String html = null;
     if ("/kill".equals(servletPath)) {
       if (isDoubleO(request)) {
-        kill();
-        return;
+        html = getKillHtml("AAAAAARRRRRRGGGHHH");
+        System.out.println("OMG, somebody shot me!");
+        new Thread(this::kill).start();
       } else {
-        html = getNoNoHtml();
+        html = getKillHtml("No No No");
       }
     }
     if (html == null) {
@@ -73,16 +76,16 @@ public class HelloServlet extends HttpServlet {
             "</html>";
   }
 
-  private String getNoNoHtml() {
+  private String getKillHtml(String cry) {
     return "<!DOCTYPE html>\n" +
             "<html\n" +
             "<head>\n" +
             "  <link rel=\"stylesheet\" type=\"text/css\" href=\"main.css\">\n" +
             "  <meta charset=\"UTF-8\">\n" +
-            "  <title>No no!!!</title>\n" +
+            "  <title>" + cry + "!!!</title>\n" +
             "</head>\n" +
             "<body>\n" +
-            "  <h1>No no!!!</h1>\n" +
+            "  <h1>" + cry + "!!!</h1>\n" +
             "  <p><a href='javascript:history.back()'>back</a></p>\n" +
             "</body>\n" +
             "</html>";
@@ -92,12 +95,14 @@ public class HelloServlet extends HttpServlet {
     return "Hello " + (name == null || name.length() == 0 ? "World" : name);
   }
 
-  private static void kill() {
+  private void kill() {
     try (Socket socket = new Socket("localhost", 8005)) {
+      Thread.sleep(1000);
       if (socket.isConnected()) {
         PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
         pw.println("SHUTDOWN");
         pw.close();
+        System.out.println("Goodbye world.");
       }
     } catch (Exception e) {
       e.printStackTrace();

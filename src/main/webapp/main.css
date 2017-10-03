@@ -1,0 +1,18 @@
+
+html {
+  font-family: Tahoma, sans-serif;
+  font-size: 90%;
+}
+
+h1 {
+  margin-left: 0.4rem;
+}
+
+p {
+  margin: 0.3rem 0.4rem 0.3rem 0.4rem;
+}
+
+a {
+  display: inline-block;
+  margin-top: 0.7rem;
+}

@@ -3,6 +3,9 @@ attic/
 target/
 work/
 
+docker/*.war
+
 workspace.xml
 Thumbs.db
+.DS_Store
 local.properties

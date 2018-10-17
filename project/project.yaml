@@ -1,0 +1,32 @@
+---
+name: Webapp Hello Java
+description: Demo Webapp for Containers and Clusters (docker / k8s / rancher etc.)
+type: project
+group: biz.descom.hellojava
+artifact: root
+version: 1.0-SNAPSHOT
+organization: Descom Consulting Ltd.
+repo: scm:git:https://remigius_stalder@bitbucket.org/remigius_stalder/webapp-hello-java.git
+javaVersion: 1.8
+properties:
+  junit.version: 4.12
+  postgresql.jdbc.version: 42.1.4
+  servlet.api.version: 3.1.0
+dependencyManagement:
+- mvn: junit:junit:${junit.version}@test
+modules:
+- name: Webapp
+  packaging: war
+  description: WAR and Docker Image
+  filter: true
+  docker:
+    image: demo-webapp
+    repo: rancherws-hub.descom-consulting.ch:443/demo
+    tag: ${build.repo.commit}
+    resources:
+    - target/webapp-${project.version}.war
+    - docker/Dockerfile
+  dependencies:
+  - mvn: javax.servlet:javax.servlet-api:${servlet.api.version}
+  - mvn: org.postgresql:postgresql:${postgresql.jdbc.version}
+  - mvn: junit:junit

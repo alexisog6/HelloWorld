@@ -9,3 +9,17 @@ workspace.xml
 Thumbs.db
 .DS_Store
 local.properties
+
+## ide settings (except run configurations)
+
+*.iml
+.idea/*.xml
+.idea/.name
+.idea/artifacts/
+.idea/codeStyles/
+.idea/dataSources/
+.idea/libraries/
+
+.settings/
+.classpath
+.project

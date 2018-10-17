@@ -3,7 +3,7 @@ hello world java webapp
 =======================
 
 this is a simple web app that can be used to for demo and testing purposes, e.g. for cloud
-infrastructure, cointainer managem,ent and/or a ci/cd pipeline.
+infrastructure, cointainer management and/or a ci/cd pipeline.
 it iss a webapp that just returns some html that says "hello world"
 
 * [Hello World](http://localhost:8080)

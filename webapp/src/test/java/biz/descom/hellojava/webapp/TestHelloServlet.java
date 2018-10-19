@@ -11,8 +11,8 @@ import static org.junit.Assert.assertEquals;
 public class TestHelloServlet {
   @Test
   public void getGreeting() {
-    assertEquals("Howdy World", HelloServlet.getGreeting(null));
-    assertEquals("Howdy World", HelloServlet.getGreeting(""));
-    assertEquals("Howdy Remi", HelloServlet.getGreeting("Remi"));
+    assertEquals("Hello World", HelloServlet.getGreeting(null));
+    assertEquals("Hello World", HelloServlet.getGreeting(""));
+    assertEquals("Hello Remi", HelloServlet.getGreeting("Remi"));
   }
 }

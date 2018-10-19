@@ -142,7 +142,7 @@ public class HelloServlet extends HttpServlet {
   }
 
   static String getGreeting(String name) {
-    return "Howdy " + (name == null || name.length() == 0 ? "World" : name);
+    return "Hello " + (name == null || name.length() == 0 ? "World" : name);
   }
 
   private void kill() {

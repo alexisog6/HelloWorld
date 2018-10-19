@@ -20,8 +20,8 @@ modules:
   description: WAR and Docker Image
   filter: true
   docker:
-    image: demo-webapp
-    repo: rancherws-hub.descom-consulting.ch:443/demo
+    image: webapp-hello-java
+    repo: remigius65/webapp-hello-java
     tag: ${build.repo.commit}
     resources:
     - target/webapp-${project.version}.war

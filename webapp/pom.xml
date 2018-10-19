@@ -103,7 +103,7 @@
         <configuration>
           <contextDirectory>${basedir}/target/docker-context</contextDirectory>
           <writeTestMetadata>false</writeTestMetadata>
-          <repository>rancherws-hub.descom-consulting.ch:443/demo</repository>
+          <repository>remigius65/webapp-hello-java</repository>
           <tag>${build.repo.commit}</tag>
         </configuration>
       </plugin>

@@ -13,6 +13,13 @@ this webapp is also available as a docker image:
 
 https://hub.docker.com/r/remigius65/webapp-hello-java/
 
+there are two tags which differ in the greeting they display:
+
+* `remigius65/webapp-hello-java:950eeaed3c` -> `hello`
+* `remigius65/webapp-hello-java:954218a9b9` -> `howdy`
+
+this allows switching between the two versions, e.g. for testing rolling upgrades and rollbacks.
+
 some usages can be found in the material to my [rancher workshop](https://github.com/Remigius2011/rancher-workshop).
 
 __DISCLAIMER:__ There are no guarantees on this software - use it at your discretion, but don't count on anybody
